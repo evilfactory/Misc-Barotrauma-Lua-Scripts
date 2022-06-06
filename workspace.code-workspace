@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+
+		"Lua.diagnostics.libraryFiles": "Enable",
+    	"Lua.workspace.library": [
+        	"B:/programming/BLua/btluadocs/types/server",
+			"B:/programming/BLua/btluadocs/types/client",
+		],
+		"Lua.diagnostics.globals": [
+			"ServerLogMessageType"
+		],
+	},
+}
