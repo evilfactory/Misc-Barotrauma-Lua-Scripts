@@ -6,14 +6,15 @@ local mutinyStarted = false
 local mutinyCharacter = {}
 
 local function SendMessage(text, color, client)
-    local chatMessage = ChatMessage.Create("", text, ChatMessageType.Default, nil, nil)
-    chatMessage.Color = color
-
     if client == nil then
         for key, value in pairs(Client.ClientList) do
+            local chatMessage = ChatMessage.Create("", text, ChatMessageType.Default, nil, nil)
+            chatMessage.Color = color
             Game.SendDirectChatMessage(chatMessage, value)
         end
     else
+        local chatMessage = ChatMessage.Create("", text, ChatMessageType.Default, nil, nil)
+        chatMessage.Color = color
         Game.SendDirectChatMessage(chatMessage, client)
     end
 end
