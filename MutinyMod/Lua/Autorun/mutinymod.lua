@@ -44,6 +44,7 @@ local function StartMutiny(character)
         mutinyStarted = true
 
         SendMessage("A mutiny has started!\n" .. PrintMutinyMembers(), Color.Red)
+        Game.Log("A mutiny has started.", ServerLogMessageType.Chat)
     elseif amountMutiny >= minMutiny then
         SendMessage(character.Name .. " has joined the mutiny!", Color.Red)
     end
@@ -52,7 +53,8 @@ end
 Hook.Add("chatMessage", "MutinyMod.ChatMessage", function (message, client)
     if message == "!mutiny" then
         if client.Character == nil or client.Character.IsDead or not client.Character.IsHuman then
-            return
+            SendMessage(PrintMutinyMembers(), Color.Cyan, client)
+            return true
         end
 
         if client.Character.IsSecurity or client.Character.IsCaptain then
@@ -60,9 +62,9 @@ Hook.Add("chatMessage", "MutinyMod.ChatMessage", function (message, client)
                 SendMessage("You cannot mutiny as captain or security!", Color.Cyan, client)
                 return true
             else
-                SendMessage(PrintMutinyMembers(), Color.Color, client)
+                SendMessage(PrintMutinyMembers(), Color.Cyan, client)
                 return true
-            end 
+            end
         end
 
         if mutinyCharacter[client.Character] then
