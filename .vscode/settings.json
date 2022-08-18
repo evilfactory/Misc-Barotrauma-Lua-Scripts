@@ -1,0 +1,6 @@
+{
+    "Lua.diagnostics.disable": [
+        "param-type-mismatch",
+        "assign-type-mismatch"
+    ]
+}
