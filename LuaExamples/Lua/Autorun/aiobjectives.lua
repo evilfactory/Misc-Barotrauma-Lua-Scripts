@@ -49,7 +49,7 @@ local function GetItem()
 end
 
 
-Hook.Add("chatMessage", "examples.aiOrders", function (message, client)    
+Hook.Add("chatMessage", "examples.aiObjectives", function (message, client)    
     local target = client and client.Character or Character.Controlled
     
     if message == "!fightme" then

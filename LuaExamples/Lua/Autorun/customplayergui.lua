@@ -40,8 +40,6 @@ elseif CLIENT then
         local client = ptable["selectedClient"]
         local playerFrame = self.PlayerFrame
 
-        local actualFrame = nil
-
         local children = {}
         for child in playerFrame.GetAllChildren() do
             table.insert(children, child)
