@@ -6,8 +6,6 @@ if SERVER then return end -- we don't want server to run GUI code.
 
 local modPath = ...
 
-local menuOpen = false
-
 -- our main frame where we will put our custom GUI
 local frame = GUI.Frame(GUI.RectTransform(Vector2(1, 1)), nil)
 frame.CanBeFocused = false
@@ -102,5 +100,9 @@ local customSprite = Sprite(modPath .. "/luasmall.png")
 GUI.Image(GUI.RectTransform(Point(65, 65), customImageFrame.RectTransform, GUI.Anchor.Center), customSprite)
 
 Hook.Patch("Barotrauma.GameScreen", "AddToGUIUpdateList", function()
+    frame.AddToGUIUpdateList()
+end)
+
+Hook.Patch("Barotrauma.SubEditorScreen", "AddToGUIUpdateList", function()
     frame.AddToGUIUpdateList()
 end)

@@ -2,7 +2,7 @@
     This example shows how to create a chat command called !humanspawning that will spawn you a new character with the assistant job and give you control to it.
 --]]
 
-if CLIENT then return end -- stops this wrong running on the client
+if CLIENT and Game.IsMultiplayer then return end -- lets this run if on the server-side, if it's multiplayer, doesn't let it run on the client, and if it's singleplayer, lets it run on the client.
 
 
 Hook.Add("chatMessage", "examples.humanSpawning", function (message, client)
@@ -13,9 +13,13 @@ Hook.Add("chatMessage", "examples.humanSpawning", function (message, client)
 
     local position = Submarine.MainSub.WorldPosition
 
-    local character = Character.Create(info, position, info.Name, 0, true, false)
+    local character = Character.Create(info, position, info.Name, 0, false, false)
     character.TeamID = CharacterTeamType.Team1
     character.GiveJobItems()
 
-    client.SetClientCharacter(character)
+    if CLIENT then
+        Character.Controlled = character
+    else
+        client.SetClientCharacter(character)
+    end
 end)
