@@ -16,15 +16,11 @@ Hook.Add("luaRevolver.onUse", "examples.xmlHooks", function(effect, deltaTime, i
 end)
 
 Hook.Add("luaRevolverRound.onImpact", "examples.xmlHooks", function(effect, deltaTime, item, targets, worldPosition)
+    if CLIENT and Game.IsMultiplayer then return end
 
-    if SERVER then -- Server-Side and Client-Side have some differences
-        Entity.Spawner.AddItemToSpawnQueue(luaMoonPrefab, item.WorldPosition, nil, nil, function(item)
-            print(item)
-        end)
-    elseif Game.IsSingleplayer then
-        local item = Item(luaMoonPrefab, item.WorldPosition)
+    Entity.Spawner.AddItemToSpawnQueue(luaMoonPrefab, item.WorldPosition, nil, nil, function(item)
         print(item)
-    end
+    end)
 
     print("We hit a " .. tostring(targets[1]))
 end)
