@@ -2,7 +2,7 @@
     This example shows how to create a chat command called !itemspawning, that will spawn a diving mask with an oxygen tank inside of it.
 --]]
 
-if CLIENT then return end -- stops this wrong running on the client
+if CLIENT and Game.IsMultiplayer then return end -- lets this run if on the server-side, if it's multiplayer, doesn't let it run on the client, and if it's singleplayer, lets it run on the client.
 
 local divingMaskPrefab = ItemPrefab.GetItemPrefab("divingmask")
 local oxygenTankPrefab = ItemPrefab.GetItemPrefab("oxygentank")
@@ -10,7 +10,12 @@ local oxygenTankPrefab = ItemPrefab.GetItemPrefab("oxygentank")
 Hook.Add("chatMessage", "examples.itemSpawning", function (message, client)
     if message ~= "!itemspawning" then return end
 
-    local character = client.Character
+    local character
+    if client == nil then
+        character = Character.Controlled
+    else
+        character = client.Character
+    end
 
     if character == nil then return end
 

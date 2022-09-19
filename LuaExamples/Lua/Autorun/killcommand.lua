@@ -2,13 +2,18 @@
     This example shows how to create a chat command that kills your character.
 --]]
 
-if CLIENT then return end -- stops this wrong running on the client
+if CLIENT and Game.IsMultiplayer then return end -- lets this run if on the server-side, if it's multiplayer, doesn't let it run on the client, and if it's singleplayer, lets it run on the client.
 
 
 Hook.Add("chatMessage", "examples.killCommand", function (message, client)
     if message ~= "!kill" then return end
 
-    if client.Character == nil then return end
+    local character
+    if client == nil then
+        character = Character.Controlled
+    else
+        character = client.Character
+    end
 
-    client.Character.Kill(CauseOfDeathType.Unknown)
+    character.Kill(CauseOfDeathType.Unknown)
 end)

@@ -2,7 +2,7 @@
     This example shows how to create a script that sends the chat messages in barotrauma to a discord webhook
 --]]
 
-if CLIENT then return end -- stops this wrong running on the client
+if CLIENT then return end -- stops this from running on the client
 
 
 local discordWebHook = "your discord webhook here"

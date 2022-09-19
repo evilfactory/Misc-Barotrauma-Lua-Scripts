@@ -2,7 +2,7 @@
     This example shows how to create a command that gives afflictions to a character.
 --]]
 
-if CLIENT then return end -- stops this wrong running on the client
+if CLIENT then return end -- stops this from running on the client
 
 local burnPrefab = AfflictionPrefab.Prefabs["burn"]
 

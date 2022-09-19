@@ -2,7 +2,7 @@
     This example shows how to create a command that sends a message to everyone.
 --]]
 
-if CLIENT then return end -- stops this wrong running on the client
+if CLIENT then return end -- stops this from running on the client
 
 
 Hook.Add("chatMessage", "examples.chatMessages", function (message, client)

@@ -2,7 +2,7 @@
     This example shows how to create a script that gives everyone a certain amount of experience every certain amount of seconds.
 --]]
 
-if CLIENT then return end -- stops this wrong running on the client
+if CLIENT then return end -- stops this from running on the client
 
 local amountExperience = 500
 local passiveExperienceDelay = 600
