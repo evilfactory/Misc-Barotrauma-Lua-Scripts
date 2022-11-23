@@ -21,4 +21,6 @@ Hook.Add("chatMessage", "examples.removeItemCommand", function (message, client)
             item.Remove()
         end 
     end
+
+    return true -- returning true allows us to hide the message
 end)

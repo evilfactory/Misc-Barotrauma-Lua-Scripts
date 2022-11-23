@@ -24,4 +24,6 @@ Hook.Add("chatMessage", "examples.itemSpawning", function (message, client)
 
         end)
     end)
+
+    return true -- returning true allows us to hide the message
 end)

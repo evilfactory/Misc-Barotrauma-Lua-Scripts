@@ -8,12 +8,20 @@ if CLIENT and Game.IsMultiplayer then return end -- lets this run if on the serv
 Hook.Add("chatMessage", "examples.humanSpawning", function (message, client)
     if message ~= "!humanspawning" then return end
 
+    -- Note: If we plan only running this server-side, we could grab the CharacterInfo from client instead, which will have all their info already set, like name and hair style.
     local info = CharacterInfo("human", "Robert")
     info.Job = Job(JobPrefab.Get("assistant"))
 
-    local position = Submarine.MainSub.WorldPosition
+    local submarine = Submarine.MainSub
+    -- This method takes a list of CharacterInfo that it will use to choose the correct spawn waypoint
+    -- in this case we only have a single info, so we just create a table with just that info in it.
+    local spawnPoint = WayPoint.SelectCrewSpawnPoints({info}, submarine)[1]
 
-    local character = Character.Create(info, position, info.Name, 0, false, false)
+    if spawnPoint == nil then
+        -- we should probably do something if it isn't able to find a spawn point
+    end
+
+    local character = Character.Create(info, spawnPoint.WorldPosition, info.Name, 0, false, false)
     character.TeamID = CharacterTeamType.Team1
     character.GiveJobItems()
 
@@ -22,4 +30,6 @@ Hook.Add("chatMessage", "examples.humanSpawning", function (message, client)
     else
         client.SetClientCharacter(character)
     end
+
+    return true -- returning true allows us to hide the message
 end)

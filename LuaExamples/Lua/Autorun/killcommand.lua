@@ -16,4 +16,6 @@ Hook.Add("chatMessage", "examples.killCommand", function (message, client)
     end
 
     character.Kill(CauseOfDeathType.Unknown)
+
+    return true -- returning true allows us to hide the message
 end)
