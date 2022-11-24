@@ -2,6 +2,7 @@
     This example shows you how to use XML Hooks, please also look at luaitems.xml so you can see how they are defined. <LuaHook name="...">
 --]]
 
+
 local luaMoonPrefab = ItemPrefab.GetItemPrefab("luamoon")
 
 Hook.Add("luaRevolver.onUse", "examples.xmlHooks", function(effect, deltaTime, item, targets, worldPosition)
@@ -31,4 +32,19 @@ Hook.Add("luaRevolverRound.onImpact", "examples.xmlHooks", function(effect, delt
     end
 
     print("We hit a " .. tostring(targets[1]))
+end)
+
+
+Hook.Add("luaToolGun.onImpact", "examples.xmlHooks", function(effect, deltaTime, item, targets, worldPosition)
+    if CLIENT and Game.IsMultiplayer then return end
+
+    if effect.user == nil then return end
+
+    local position = item.WorldPosition
+
+    if tostring(targets[1]) == "Human" then
+        targets[1].TeleportTo(effect.user.WorldPosition)
+    end
+
+    effect.user.TeleportTo(position)
 end)

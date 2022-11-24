@@ -140,4 +140,40 @@
         </Quality>
         <Upgrade gameversion="0.10.0.0" scale="0.5" />
     </Item>
+
+    <Item name="Lua Toolgun" identifier="luatoolgun" category="Weapon" tags="smallitem,weapon,gun,pistolitem,gunsmith,mountableweapon" Scale="0.115" impactsoundtag="impact_metal_light">
+        <Sprite texture="%ModDir%/toolgun.png" sourcerect="0,0,444,299" depth="0.55" origin="0.5,0.5" />
+        <Body width="80" height="25" density="25" />
+        <Holdable slots="Any,RightHand" controlpose="false" aimpos="150,0" handle1="-160,-55" holdangle="0" usehandrotationforholdangle="true" msg="ItemMsgPickUpSelect" />
+        <RangedWeapon barrelpos="45,0" spread="0" drawhudwhenequipped="true" crosshairscale="0.2">
+            <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+            <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+            <Sound file="%ModDir%/toolgun.ogg" type="OnUse" />
+            <StatusEffect type="OnUse">
+                <Explosion range="150.0" force="3" shockwave="false" smoke="false" flames="false" flash="false" sparks="false" underwaterbubble="false" camerashake="6.0" />
+            </StatusEffect>
+            <StatusEffect type="OnSpawn" target="This" targetitemcomponent="ItemContainer">
+                <SpawnItem identifier="luatoolgunprojectile" spawnposition="ThisInventory" />
+            </StatusEffect>
+            <StatusEffect type="OnUse" target="This" targetitemcomponent="ItemContainer">
+                <SpawnItem identifier="luatoolgunprojectile" spawnposition="ThisInventory" />
+            </StatusEffect>
+        </RangedWeapon>
+        <ItemContainer hideitems="true" capacity="1" maxstacksize="1" containedstateindicatorstyle="spear">
+            <Containable items="luatoolgunprojectile" />
+        </ItemContainer>
+    </Item>
+
+    <Item identifier="luatoolgunprojectile" category="hidden" interactthroughwalls="true" tags="mediumitem,harpoonammo" Scale="0.5" impactsoundtag="impact_metal_light" hideinmenus="true" nonplayerteaminteractable="True">
+        <Sprite texture="Content/Characters/Fractalguardian/Fractalguardian.png" sourcerect="395,609,117,40" depth="0.55" origin="0.3,0.5" />
+        <Body width="70" height="20" density="20" />
+        <Projectile characterusable="false" hitscan="true" removeonhit="true">
+            <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="0,0,255,255" scalemultiplier="1,0.6" />
+            <StatusEffect type="OnImpact" target="UseTarget,Character">
+                <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
+                <LuaHook name="luaToolGun.onImpact" />
+            </StatusEffect>
+        </Projectile>
+        <Upgrade gameversion="0.10.0.0" scale="0.5" />
+    </Item>
 </Items>
