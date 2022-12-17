@@ -45,8 +45,15 @@ local function StartMutiny(character)
 
         SendMessage("A mutiny has started!\n" .. PrintMutinyMembers(), Color.Red)
         Game.Log("A mutiny has started.", ServerLogMessageType.Chat)
+
+        for k, v in pairs(mutinyCharacter) do
+            k.SetOriginalTeam(CharacterTeamType.Team2)
+            k.UpdateTeam()
+        end
     elseif amountMutiny >= minMutiny then
         SendMessage(character.Name .. " has joined the mutiny!", Color.Red)
+        character.SetOriginalTeam(CharacterTeamType.Team2)
+        character.UpdateTeam()
     end
 end
 

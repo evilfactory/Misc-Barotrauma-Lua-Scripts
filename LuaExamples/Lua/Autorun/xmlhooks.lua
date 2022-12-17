@@ -33,18 +33,3 @@ Hook.Add("luaRevolverRound.onImpact", "examples.xmlHooks", function(effect, delt
 
     print("We hit a " .. tostring(targets[1]))
 end)
-
-
-Hook.Add("luaToolGun.onImpact", "examples.xmlHooks", function(effect, deltaTime, item, targets, worldPosition)
-    if CLIENT and Game.IsMultiplayer then return end
-
-    if effect.user == nil then return end
-
-    local position = item.WorldPosition
-
-    if tostring(targets[1]) == "Human" then
-        targets[1].TeleportTo(effect.user.WorldPosition)
-    end
-
-    effect.user.TeleportTo(position)
-end)

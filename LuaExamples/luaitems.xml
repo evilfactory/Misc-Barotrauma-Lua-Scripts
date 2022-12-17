@@ -162,6 +162,25 @@
         <ItemContainer hideitems="true" capacity="1" maxstacksize="1" containedstateindicatorstyle="spear">
             <Containable items="luatoolgunprojectile" />
         </ItemContainer>
+
+        <CustomInterface canbeselected="false" drawhudwhenequipped="true" allowuioverlap="true">
+            <GuiFrame relativesize="0.13,0.13" anchor="CenterLeft" pivot="CenterLeft" relativeoffset="0.01,0.001" style="ItemUI" linkuitocomponent="ItemContainer" />
+            <Button text="Teleport Mode">
+                <StatusEffect type="OnUse">
+                    <LuaHook name="luaToolGun.teleportMode" />
+                </StatusEffect>
+            </Button>
+            <Button text="Impulse Mode">
+                <StatusEffect type="OnUse">
+                    <LuaHook name="luaToolGun.impulseMode" />
+                </StatusEffect>
+            </Button>
+            <Button text="Delete Mode">
+                <StatusEffect type="OnUse">
+                    <LuaHook name="luaToolGun.deleteMode" />
+                </StatusEffect>
+            </Button>
+        </CustomInterface>
     </Item>
 
     <Item identifier="luatoolgunprojectile" category="hidden" interactthroughwalls="true" tags="mediumitem,harpoonammo" Scale="0.5" impactsoundtag="impact_metal_light" hideinmenus="true" nonplayerteaminteractable="True">
@@ -169,7 +188,7 @@
         <Body width="70" height="20" density="20" />
         <Projectile characterusable="false" hitscan="true" removeonhit="true">
             <ParticleEmitter particle="tracerfirearm" particleamount="1" velocitymin="0" velocitymax="0" colormultiplier="0,0,255,255" scalemultiplier="1,0.6" />
-            <StatusEffect type="OnImpact" target="UseTarget,Character">
+            <StatusEffect type="OnImpact" target="UseTarget,Character,Limb">
                 <ParticleEmitter particle="impactfirearm" particleamount="1" velocitymin="0" velocitymax="0" />
                 <LuaHook name="luaToolGun.onImpact" />
             </StatusEffect>
