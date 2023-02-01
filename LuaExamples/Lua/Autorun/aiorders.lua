@@ -7,20 +7,20 @@ if CLIENT and Game.IsMultiplayer then return end -- lets this run if on the serv
 function ManRandomTurret()
     local orderPrefab = OrderPrefab.Prefabs["operateweapons"]
 
-    local periscopes = {}
+    local coilguns = {}
     for key, value in pairs(Submarine.MainSub.GetItems(true)) do
-        if value.Prefab.Identifier.Value == "periscope" then
-            table.insert(periscopes, value)
+        if value.Prefab.Identifier.Value == "coilgun" then
+            table.insert(coilguns, value)
         end
     end
 
     for key, value in pairs(Character.CharacterList) do
         if value.IsBot and value.IsHuman then
-            local periscope = periscopes[math.random(1, #periscopes)]
+            local coilgun = coilguns[math.random(1, #coilguns)]
 
-            local order = Order(orderPrefab, periscope, periscope.GetComponentString("Controller")).WithManualPriority(CharacterInfo.HighestManualOrderPriority)
+            local order = Order(orderPrefab, coilgun, coilgun.GetComponentString("Turret")).WithManualPriority(CharacterInfo.HighestManualOrderPriority)
 
-            print("Order to man " .. tostring(periscope))
+            print("Order to man " .. tostring(coilgun))
 
             value.SetOrder(order, true, false, true)
         end
