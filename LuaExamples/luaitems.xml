@@ -195,4 +195,15 @@
         </Projectile>
         <Upgrade gameversion="0.10.0.0" scale="0.5" />
     </Item>
+
+    <Item name="Lua Armor" identifier="luaarmor" category="Equipment" tags="smallitem,clothing" scale="0.35" cargocontaineridentifier="metalcrate" description="" impactsoundtag="impact_soft">
+        <Upgrade gameversion="0.9.3.0" scale="0.35" />
+        <PreferredContainer primary="secarmcab" amount="3" notcampaign="true"/>
+        <InventoryIcon texture="Content/Items/InventoryIconAtlas.png" sourcerect="960,256,64,64" origin="0.5,0.5" />
+        <Sprite name="Security Vest Item" texture="Content/Items/Jobgear/Mechanic/safetyharness.png" sourcerect="14,45,103,180" depth="0.6" origin="0.5,0.35" />
+        <Body width="85" height="90" density="25" />
+        <Wearable slots="Any,OuterClothes" msg="ItemMsgPickUpSelect">
+          <sprite name="Security Vest Wearable" texture="Content/Items/Jobgear/Mechanic/safetyharness.png" limb="Torso" hidelimb="false" inheritscale="true" scale="0.65" inheritorigin="false" origin="0.5,0.5" inheritsourcerect="false" sourcerect="14,45,103,180" />
+        </Wearable>
+      </Item>
 </Items>

@@ -19,10 +19,10 @@ Hook.Add("luaToolGun.onImpact", "examples.toolgun", function(effect, deltaTime, 
 
         effect.user.TeleportTo(position)
     elseif toolgunModes[launcher] == "impulse" then
-        if tostring(targets[2]) == "Barotrauma.Limb" then
+        if tostring(targets[3]) == "Barotrauma.Limb" then
             local direction = Vector2.Normalize(targets[2].WorldPosition - launcher.WorldPosition)
 
-            targets[2].body.ApplyForce(direction * 10000, 1000)
+            targets[3].body.ApplyForce(direction * 10000, 1000)
             targets[1].Stun = 1
         end
     elseif toolgunModes[launcher] == "delete" then
