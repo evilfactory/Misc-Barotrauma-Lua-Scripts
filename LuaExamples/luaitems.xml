@@ -204,6 +204,10 @@
         <Body width="85" height="90" density="25" />
         <Wearable slots="Any,OuterClothes" msg="ItemMsgPickUpSelect">
           <sprite name="Security Vest Wearable" texture="Content/Items/Jobgear/Mechanic/safetyharness.png" limb="Torso" hidelimb="false" inheritscale="true" scale="0.65" inheritorigin="false" origin="0.5,0.5" inheritsourcerect="false" sourcerect="14,45,103,180" />
+
+          <damagemodifier afflictiontypes="bleeding" armorsector="0.0,360.0" damagemultiplier="1" damagesound="LimbArmor" deflectprojectiles="true" />
+
+          <sprite name="shellshield" texture="Content/Items/CreatureLoot/CreatureLoot.png" sourcerect="363,0,100,165" limb="Torso" depthlimb="head" hidelimb="false" inherittexturescale="true" inheritorigin="false" inheritsourcerect="false" origin="0.5,0.65"/>
         </Wearable>
       </Item>
 </Items>
