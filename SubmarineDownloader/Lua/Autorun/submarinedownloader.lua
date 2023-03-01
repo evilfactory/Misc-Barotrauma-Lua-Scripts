@@ -46,7 +46,7 @@ local itemsBeingDownloaded = 0
 local itemsDownloaded = 0
 
 local function UpdateItem(id)
-    Steam.GetWorkshopItem(id, function (item)
+    Steam.GetWorkshopItem(UInt64(id), function (item)
         if item == nil then
             print(string.format("Couldn't find workshop item with id %s.", id))
             return
