@@ -95,7 +95,7 @@
         <Upgrade gameversion="0.10.0.0" scale="0.5" />
     </Item>
 
-    <Item name="Lua Revolver" identifier="luarevolver" category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,gun,pistolitem,gunsmith,mountableweapon" Scale="0.5" impactsoundtag="impact_metal_light">
+    <Item name="Lua Revolver" identifier="luarevolver" category="Weapon" cargocontaineridentifier="metalcrate" tags="smallitem,weapon,gun,pistolitem,gunsmith,mountableweapon,zoom" Scale="0.5" impactsoundtag="impact_metal_light">
         <PreferredContainer secondary="outpostsecarmcab" amount="1" spawnprobability="0.5" />
         <PreferredContainer secondary="wrecksecarmcab,abandonedsecarmcab" amount="1" spawnprobability="0.25" />
         <PreferredContainer primary="secarmcab" secondary="armcab,weaponholder" />
