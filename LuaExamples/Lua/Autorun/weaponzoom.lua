@@ -8,8 +8,8 @@ local function lerp(a,b,t)
     return a * (1 - t) + b * t
 end
 
-Hook.Add("think", "examples.weaponZoom", function ()
-    local character = Character.Controlled
+Hook.Patch("Barotrauma.Character", "ControlLocalPlayer", function (instance, ptable)
+    local character = instance
 
     if not character then return end
     if not character.Inventory then return end
@@ -22,5 +22,5 @@ Hook.Add("think", "examples.weaponZoom", function ()
 
     if not character.AnimController.IsAiming then return end
 
-    Screen.Selected.Cam.Zoom = lerp(Screen.Selected.Cam.Zoom, 0.2, 0.1)
-end)
+    Screen.Selected.Cam.OffsetAmount = lerp(Screen.Selected.Cam.OffsetAmount, 1000, 0.5)
+end, Hook.HookMethodType.After)
