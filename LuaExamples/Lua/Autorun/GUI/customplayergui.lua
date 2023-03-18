@@ -31,7 +31,7 @@ elseif CLIENT then
             if client.Character == nil then return false end
 
             local message = Networking.Start("explode")
-            message.Write(UInt16(client.Character.ID))
+            message.WriteUInt16(client.Character.ID)
             Networking.Send(message)
         end
     end
