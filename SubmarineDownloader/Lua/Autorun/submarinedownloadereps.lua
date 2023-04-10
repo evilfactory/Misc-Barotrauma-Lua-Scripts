@@ -88,8 +88,7 @@ local function UpdateAllItems()
 end
 
 Game.AddCommand("updatesubmarines", "", function ()
-    UpdateSubmarines() then
-    print("Manually updating submarine lobby.")
+    UpdateSubmarines()
 end)
 
 Game.AddCommand("updateworkshop", "", function ()
