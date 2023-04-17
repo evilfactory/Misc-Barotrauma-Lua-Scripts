@@ -13,6 +13,7 @@ if not Game.IsDedicated then
 end
 
 local function UpdateSubmarines()
+    print("Updating submarine lobby.")
     SubmarineInfo.RefreshSavedSubs()
     local toReplace = {}
 
