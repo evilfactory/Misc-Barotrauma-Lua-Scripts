@@ -60,7 +60,7 @@ local function UpdateItem(id)
             print(string.format("(%s/%s) '%s' was successfully downloaded and placed in %s", itemsDownloaded, itemsBeingDownloaded, downloadedItem.Title, path .. id))
 
             if itemsDownloaded == itemsBeingDownloaded then
-                print("Updating submarine lobby.")
+                print("Automatic Submarine Lobby Update Successful")
                 UpdateSubmarines()
             end
         end)
