@@ -1,6 +1,6 @@
 -- put here the id of all workshop collections you want the script to download from.
--- example: {"2808536198"}
-local workshopCollections = {2958545794,2810079923,2872190941,2663385384,2872367627,2202625304}
+-- example: {"2963343754"}
+local workshopCollections = {2963343754}
 
 -- path that submarines are going to be downloaded to.
 local path = "LocalMods/SubmarineDownloader/Downloaded/"
