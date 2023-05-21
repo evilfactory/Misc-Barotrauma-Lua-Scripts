@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="LuaExamples" corepackage="false" gameversion="0.14.9.1">
+    <Item file="%ModDir%/luaitems.xml" />
+</contentpackage>
