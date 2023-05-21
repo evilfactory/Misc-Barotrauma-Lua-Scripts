@@ -3,7 +3,7 @@
 -- Workshop Collection is Outsourced; credit to submarine authors.
 -- put here the id of all workshop collections you want the script to download from.
 -- example: {"2963343754"}
-local workshopCollections = {2963343754}
+local workshopCollections = {}
 
 -- path that submarines are going to be downloaded to.
 local path = "LocalMods/SubmarineDownloader/Downloaded/"
