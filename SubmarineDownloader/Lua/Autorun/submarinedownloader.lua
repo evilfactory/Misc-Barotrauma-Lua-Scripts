@@ -1,6 +1,9 @@
+-- Submarine Downloader By
+-- Evil Factory & Greetings (AtFreezingPoint)
+-- Workshop Collection is Outsourced; credit to submarine authors.
 -- put here the id of all workshop collections you want the script to download from.
--- example: {"2808536198"}
-local workshopCollections = {}
+-- example: {"2963343754"}
+local workshopCollections = {2963343754}
 
 -- path that submarines are going to be downloaded to.
 local path = "LocalMods/SubmarineDownloader/Downloaded/"
@@ -13,6 +16,7 @@ if not Game.IsDedicated then
 end
 
 local function UpdateSubmarines()
+    print("Updating submarine lobby.")
     SubmarineInfo.RefreshSavedSubs()
     local toReplace = {}
 
@@ -59,7 +63,7 @@ local function UpdateItem(id)
             print(string.format("(%s/%s) '%s' was successfully downloaded and placed in %s", itemsDownloaded, itemsBeingDownloaded, downloadedItem.Title, path .. id))
 
             if itemsDownloaded == itemsBeingDownloaded then
-                print("Updating submarine lobby.")
+                print("Automatic Submarine Lobby Update Successful")
                 UpdateSubmarines()
             end
         end)
@@ -86,6 +90,10 @@ local function UpdateAllItems()
         end)
     end
 end
+
+Game.AddCommand("updatesubmarines", "", function ()
+    UpdateSubmarines()
+end)
 
 Game.AddCommand("updateworkshop", "", function ()
     UpdateAllItems()
