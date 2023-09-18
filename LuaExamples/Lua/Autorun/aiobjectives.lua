@@ -43,7 +43,8 @@ local function GetItem()
 
             print("added objective to get item " .. item.Name)
 
-            manager.AddObjective(AIObjectiveGetItem(value, item, manager, false, 99))
+            manager.AddObjective(AIObjectiveGoTo(item, value, manager))
+            manager.AddObjective(AIObjectiveGetItem(value, item, manager, false))
         end
     end
 end
