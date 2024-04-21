@@ -22,7 +22,7 @@ elseif CLIENT then
         local tickBox = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), frame.RectTransform), "Evil person!!")
         tickBox.Selected = true
         tickBox.OnSelected = function ()
-            print(tickBox.State == 3)
+            print(tickBox.Selected)
         end
     
         local button = GUI.Button(GUI.RectTransform(Vector2(1, 0.2), frame.RectTransform, GUI.Anchor.TopRight), "Make Person Explode!!!", GUI.Alignment.Center, "GUIButtonSmall")

@@ -46,7 +46,7 @@ end
 local tickBox = GUI.TickBox(GUI.RectTransform(Vector2(1, 0.2), menuList.Content.RectTransform), "This is a tick box")
 tickBox.Selected = true
 tickBox.OnSelected = function ()
-    print(tickBox.State == 3)
+    print(tickBox.Selected)
 end
 
 local numberInput = GUI.NumberInput(GUI.RectTransform(Vector2(1, 0.1), menuList.Content.RectTransform), NumberType.Float)

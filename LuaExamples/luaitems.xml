@@ -67,6 +67,10 @@
             attachable="true" attachedbydefault="true" aimable="true">
             <requireditem identifier="wrench" type="Equipped" />
         </Holdable>
+
+        <CustomInterface type="luacustom" CanBeSelected="true">
+            <GuiFrame relativesize="0.5,0.5" anchor="CenterLeft" pivot="CenterLeft" style="ItemUI" linkuitocomponent="ItemContainer" />
+        </CustomInterface>
     </Item>
 
     <Item name="Lua Revolver Round" identifier="luarevolverround" category="Weapon"
